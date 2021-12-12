@@ -5,18 +5,6 @@
 #include <algorithm>
 #include <functional>
 
-/*
-void recursivo(std::vector<std::pair<int, int>> &cuencas_inicio, std::vector<std::pair<int, int>> &cuencas_final)
-{
-    for (auto &cuenca : cuencas_inicio)
-    {
-        bool existe = (std::find(cuencas_final.begin(), cuencas.end(), cuenca) != cuencas_final.end());
-        if (existe)
-            
-    }
-}
-*/
-
 int main()
 {
     std::ifstream archivo;
@@ -119,7 +107,6 @@ int main()
                                                                           for (auto &cuenca : cuencas)
                                                                           {
                                                                               cuencas_final.push_back(cuenca);
-                                                                              //std::cout << "De: (" << cuenca.first << ", " << cuenca.second << ") -> " << mapa[cuenca] << std::endl;
                                                                               std::vector<std::pair<int, int>> nuevos = ret_cuencas(cuenca);
                                                                               nuevos.erase(std::remove_if(nuevos.begin(), nuevos.end(), [&](auto &n)
                                                                                                                                         {
@@ -134,10 +121,7 @@ int main()
     for (auto &menor : menores)
     {
         std::vector<std::pair<int, int>> cuencas_menor = ret_cuencas(menor);
-        std::cout << "Cuencas iniciales de: (" << menor.first << ", " << menor.second << ") -> " << mapa[menor] << " --- ";
-        std::cout << std::endl;
         recursivo(cuencas_menor);
-        
         std::sort(cuencas_final.begin(), cuencas_final.end());
         auto unicos = std::unique(cuencas_final.begin(), cuencas_final.end());
         cuencas_final.erase(unicos, cuencas_final.end());
