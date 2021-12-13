@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <cstdlib>
 
-#include "separar.hpp"
+#include "../separar.hpp"
 
 struct Entrada
 {
